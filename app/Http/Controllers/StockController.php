@@ -7,27 +7,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
-class AjaxdataController extends Controller
+class StockController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('stocks');
     }
 
-    function getdata()
+    function getData()
     {
-        $students = Stock::select('id', 'code', 'stock','created_at','updated_at');
-
-        return Datatables::of($students)
-            ->addColumn('action', function($student){
-                return '<a href="#" class="btn btn-xs btn-primary edit" id="'.$student->id.'"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+        $stocks = Stock::select('id', 'code', 'stock','created_at','updated_at');
+        return Datatables::of($stocks)
+            ->addColumn('action', function($stock){
+                return '<a href="#" class="btn btn-xs btn-primary edit" id="'.$stock->id.'"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
             })
             ->make(true);
     }
-    function fetchdata(Request $request)
+    function fetchData(Request $request)
     {
-
-        // dd('ok');
         $id = $request->input('id');
         $student = Stock::find($id);
         $output = array(
@@ -36,12 +33,11 @@ class AjaxdataController extends Controller
         );
         echo json_encode($output);
     }
-    function postdata(Request $request)
+    function postData(Request $request)
     {
-       // dd('ok');
         $validation = Validator::make($request->all(), [
-          //  'code' => 'required',
-           // 'stock'  => 'required',
+          //  'code'   => 'required',
+          //  'stock'  => 'required',
         ]);
 
         $error_array = array();
@@ -73,7 +69,6 @@ class AjaxdataController extends Controller
                 $student->save();
                 $success_output = '<div class="alert alert-success">Data Updated</div>';
             }
-
         }
 
         $output = array(
