@@ -14,7 +14,7 @@
 <main>
     <div class="container">
         <br />
-        <h3 align="center">Gestion de Prevision</h3>
+        <h3 align="center">Gestion de Stock_PFVR</h3>
         <br />
         <div align="right">
             <button type="button" name="add" id="add_data" class="btn btn-success btn-sm">Add</button>
@@ -65,7 +65,7 @@
         $('#stock_table').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{ route('prevision.getdata') }}",
+            "ajax": "{{ route('stock_pfvr.getdata') }}",
             "columns":[
                 { "data": "code_PF" },
                 { "data": "quantite" },
@@ -89,7 +89,7 @@
             event.preventDefault();
             var form_data = $(this).serialize();
             $.ajax({
-                url:"{{ route('prevision.postdata') }}",
+                url:"{{ route('stock_pfvr.postdata') }}",
                 method:"POST",
                 data:form_data,
                 dataType:"json",
@@ -124,7 +124,7 @@
 
 
             $.ajax({
-                url:"{{route('prevision.fetchdata')}}",
+                url:"{{route('stock_pfvr.fetchdata')}}",
 
                 method:'get',
                 data:{id:id},

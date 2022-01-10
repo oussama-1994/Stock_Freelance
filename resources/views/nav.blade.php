@@ -3,11 +3,13 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
     <div class="navbar__left">
-
         <a class="link" href="{{ url('/') }}">Dashboard</a>
-        <a class="link" href="{{ url('stocks') }}">Stock</a>
-        <a class="link" href="{{ url('prevision') }}">Prevision</a>
-
+        <a class="link" href="{{ url('fabrication_pf') }}">Fabrication PF</a>
+        <a class="link" href="{{ url('prevision') }}">Vente Prevision</a>
+        <a class="link" href="{{ url('stock_pfsf') }}">Stock PFSF</a>
+        <a class="link" href="{{ url('stock_pfvr') }}">Stock PFVR</a>
+        <a class="link" href="{{ url('stocks_composant') }}">Stock Composant</a>
+        <a class="link" href="{{ url('bc_composant') }}">BC Composant</a>
     </div>
     <div class="navbar__right">
         <a href="#">

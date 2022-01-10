@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class StockPFSF extends Model
 {
+    protected $table = 'stock_pfsf';
+    protected $fillable = ['quantite'];
+
     use HasFactory;
-    protected $fillable = [
-        'code',
-        'stock',
-    ];
 }

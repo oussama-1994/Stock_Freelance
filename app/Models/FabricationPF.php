@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Prevision extends Model
+class FabricationPF extends Model
 {
-    protected $table = 'ventes_previsions';
+    protected $table = 'fabrication_pf';
     use HasFactory;
-
-    protected $fillable = ['code','quantite'];
+    protected $fillable = [
+        'code_pf',
+        'quantite',
+    ];
 }

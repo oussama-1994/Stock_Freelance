@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prevision;
-use App\Models\FabricationPF;
+use App\Models\StockPFSF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
-class PrevisionController extends Controller
+class StockPFSF_Controller extends Controller
 {
     public function index()
     {
-        return view('prevision');
+        return view('stockPFSF');
     }
 
     function getData()
     {
-        $previsions = Prevision::select('id', 'code_PF','quantite');
+        $stockPFSFs = StockPFSF::select('id', 'code_PF','quantite');
 
-        return Datatables::of($previsions)
-            ->addColumn('action', function($prevision){
-                return '<a href="#" class="btn btn-xs btn-primary edit" id="'.$prevision->id.'"><i class="glyphicon glyphicon-edit"></i> Modifier </a>';
+        return Datatables::of($stockPFSFs)
+            ->addColumn('action', function($stockPFSF){
+                return '<a href="#" class="btn btn-xs btn-primary edit" id="'.$stockPFSF->id.'"><i class="glyphicon glyphicon-edit"></i> Modifier </a>';
             })
             ->make(true);
     }
@@ -29,10 +28,10 @@ class PrevisionController extends Controller
     {
 
         $id = $request->input('id');
-        $prevision = Prevision::find($id);
+        $stockPFSF = StockPFSF::find($id);
         $output = array(
-            'id'    =>  $prevision->id,
-            'code_PF'     =>  $prevision->code_PF
+            'id'    =>  $stockPFSF->id,
+            'code_PF'     =>  $stockPFSF->code_PF
         );
         echo json_encode($output);
     }
@@ -56,17 +55,17 @@ class PrevisionController extends Controller
         {
             if($request->get('button_action') == 'insert')
             {
-                $prevision = new Prevision([
+                $stockPFSF = new StockPFSF([
                     'code_PF'    =>  $request->get('code_PF'),
                     'quantite'     =>  $request->get('quantite')
                 ]);
-                $prevision->save();
+                $stockPFSF->save();
                 $success_output = '<div class="alert alert-success">Data Inserted</div>';
             }
             if($request->get('button_action') == 'update')
             {
-                $prevision = Prevision::find($request->get('id'));
-                $prevision->update([
+                $stockPFSF = StockPFSF::find($request->get('id'));
+                $stockPFSF->update([
                     'quantite'     =>  $request->get('quantite')
                 ]);
             }

@@ -1,8 +1,6 @@
 <div id="sidebar">
     <div class="sidebar__title">
         <div class="sidebar__img">
-
-
             <h1>Stock Application</h1>
         </div>
         <i
@@ -21,11 +19,27 @@
         <h2>Menu</h2>
         <div class="sidebar__link">
             <i class="fa fa-user-secret" aria-hidden="true"></i>
-            <a href="{{ url('stocks') }}">Stock</a>
+            <a href="{{ url('fabrication_pf') }}">Fabrication PF</a>
         </div>
         <div class="sidebar__link">
             <i class="fa fa-building-o"></i>
-            <a href="{{ url('prevision') }}">Prevision</a>
+            <a href="{{ url('prevision') }}">Ventes Prévision</a>
+        </div>
+        <div class="sidebar__link">
+            <i class="fa fa-building-o"></i>
+            <a href="{{ url('stock_pfsf') }}">Stock PFSF</a>
+        </div>
+        <div class="sidebar__link">
+            <i class="fa fa-building-o"></i>
+            <a href="{{ url('stock_pfvr') }}">Stock PFVR</a>
+        </div>
+        <div class="sidebar__link">
+            <i class="fa fa-building-o"></i>
+            <a href="{{ url('stocks_composant') }}">Stock Composant</a>
+        </div>
+        <div class="sidebar__link">
+            <i class="fa fa-building-o"></i>
+            <a href="{{ url('bc_composant') }}">BC Composant</a>
         </div>
         <!--
         <div class="sidebar__link">

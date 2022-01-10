@@ -9,13 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body id="body">
+@include('nav')
 
 <main>
-    @include('nav')
-
     <div class="container">
         <br />
-        <h3 align="center">Gestion de Stock</h3>
+        <h3 align="center">Gestion de Stock_PFSF</h3>
         <br />
         <div align="right">
             <button type="button" name="add" id="add_data" class="btn btn-success btn-sm">Add</button>
@@ -25,7 +24,7 @@
             <thead>
             <tr>
                 <th>Code</th>
-                <th>Stock</th>
+                <th>Quantité</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -44,20 +43,17 @@
                 <div class="modal-body">
                     {{csrf_field()}}
                     <span id="form_output"></span>
+
                     <div class="form-group">
-                        <label>Code</label>
-                        <input type="text" name="code" id="first_name" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Quantity</label>
-                        <input type="number" name="stock" id="last_name" class="form-control" />
+                        <label>Quantité</label>
+                        <input type="number" name="quantite" id="last_name" class="form-control" min="0" />
                     </div>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id" id="id" value="" />
                     <input type="hidden" name="button_action" id="button_action" value="insert" />
                     <input type="submit" name="submit" id="action" value="Add" class="btn btn-info" />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                 </div>
             </form>
         </div>
@@ -69,10 +65,10 @@
         $('#stock_table').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{ route('ajaxdata.getdata') }}",
+            "ajax": "{{ route('stock_pfsf.getdata') }}",
             "columns":[
-                { "data": "code" },
-                { "data": "stock" },
+                { "data": "code_PF" },
+                { "data": "quantite" },
                 { "data": "action", orderable:false, searchable: false}
             ]
         });
@@ -93,7 +89,7 @@
             event.preventDefault();
             var form_data = $(this).serialize();
             $.ajax({
-                url:"{{ route('ajaxdata.postdata') }}",
+                url:"{{ route('stock_pfsf.postdata') }}",
                 method:"POST",
                 data:form_data,
                 dataType:"json",
@@ -128,7 +124,7 @@
 
 
             $.ajax({
-                url:"{{route('ajaxdata.fetchdata')}}",
+                url:"{{route('stock_pfsf.fetchdata')}}",
 
                 method:'get',
                 data:{id:id},
@@ -143,8 +139,8 @@
                     $('#stock').val(data.stock);
                     $('#id').val(id);
                     $('#stockModal').modal('show');
-                    $('#action').val('Edit');
-                    $('.modal-title').text('Edit Data');
+                    $('#action').val('Enregistrer');
+                    $('.modal-title').text('Modifier la Prévision');
                     $('#button_action').val('update');
                 }
             })
