@@ -6,6 +6,7 @@
         <a class="link" href="{{ url('/') }}">Dashboard</a>
         <a class="link" href="{{ url('fabrication_pf') }}">Fabrication PF</a>
         <a class="link" href="{{ url('prevision') }}">Vente Prevision</a>
+        <a class="link" href="{{ url('stock_pf') }}">Stock PF</a>
         <a class="link" href="{{ url('stock_pfsf') }}">Stock PFSF</a>
         <a class="link" href="{{ url('stock_pfvr') }}">Stock PFVR</a>
         <a class="link" href="{{ url('stocks_composant') }}">Stock Composant</a>

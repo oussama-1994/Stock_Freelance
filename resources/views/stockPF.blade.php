@@ -14,7 +14,7 @@
 <main>
     <div class="container">
         <br />
-        <h3 align="center">Gestion de Stock_PFSF</h3>
+        <h3 align="center">Gestion de Stock_PF</h3>
         <br />
         <div align="right">
             <button type="button" name="add" id="add_data" class="btn btn-success btn-sm">Add</button>
@@ -65,7 +65,7 @@
         $('#stock_table').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{ route('stock_pfsf.getdata') }}",
+            "ajax": "{{ route('stock_pf.getdata') }}",
             "columns":[
                 { "data": "code_PF" },
                 { "data": "quantite" },
@@ -89,7 +89,7 @@
             event.preventDefault();
             var form_data = $(this).serialize();
             $.ajax({
-                url:"{{ route('stock_pfsf.postdata') }}",
+                url:"{{ route('stock_pf.postdata') }}",
                 method:"POST",
                 data:form_data,
                 dataType:"json",
@@ -124,7 +124,7 @@
 
 
             $.ajax({
-                url:"{{route('stock_pfsf.fetchdata')}}",
+                url:"{{route('stock_pf.fetchdata')}}",
 
                 method:'get',
                 data:{id:id},
@@ -140,7 +140,7 @@
                     $('#id').val(id);
                     $('#stockModal').modal('show');
                     $('#action').val('Enregistrer');
-                    $('.modal-title').text('Modifier le Stock PFSF');
+                    $('.modal-title').text('Modifier le Stock PF');
                     $('#button_action').val('update');
                 }
             })

@@ -27,6 +27,10 @@
         </div>
         <div class="sidebar__link">
             <i class="fa fa-building-o"></i>
+            <a href="{{ url('stock_pf') }}">Stock PF</a>
+        </div>
+        <div class="sidebar__link">
+            <i class="fa fa-building-o"></i>
             <a href="{{ url('stock_pfsf') }}">Stock PFSF</a>
         </div>
         <div class="sidebar__link">

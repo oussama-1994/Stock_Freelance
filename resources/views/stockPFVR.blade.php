@@ -140,7 +140,7 @@
                     $('#id').val(id);
                     $('#stockModal').modal('show');
                     $('#action').val('Enregistrer');
-                    $('.modal-title').text('Modifier la Prévision');
+                    $('.modal-title').text('Modifier le Stock PFVR');
                     $('#button_action').val('update');
                 }
             })

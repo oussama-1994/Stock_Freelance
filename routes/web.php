@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\FabricationController;
 use \App\Http\Controllers\PrevisionController;
 use \App\Http\Controllers\StockPFSF_Controller;
+use \App\Http\Controllers\StockPF_Controller;
+
 
 
 
@@ -44,3 +46,9 @@ Route::get('stock_pfvr', [StockPFVR_Controller::class,'index'])->name('stock_pfv
 Route::get('stock_pfvr/getdata', [StockPFVR_Controller::class, 'getData'])->name('stock_pfvr.getdata');
 Route::post('stock_pfvr/postdata',  [StockPFVR_Controller::class, 'postData'])->name('stock_pfvr.postdata');
 Route::get('stock_pfvr/fetchdata', [StockPFVR_Controller::class, 'fetchData'])->name('stock_pfvr.fetchdata');
+
+
+Route::get('stock_pf', [StockPF_Controller::class,'index'])->name('stock_pf');
+Route::get('stock_pf/getdata', [StockPF_Controller::class, 'getData'])->name('stock_pf.getdata');
+Route::post('stock_pf/postdata',  [StockPF_Controller::class, 'postData'])->name('stock_pf.postdata');
+Route::get('stock_pf/fetchdata', [StockPF_Controller::class, 'fetchData'])->name('stock_pf.fetchdata');
