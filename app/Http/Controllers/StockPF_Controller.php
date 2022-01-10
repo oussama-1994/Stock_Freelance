@@ -12,7 +12,7 @@ class StockPF_Controller extends Controller
 
     public function index()
     {
-        return view('StockPF');
+        return view('stockPF');
     }
 
     function getData()
