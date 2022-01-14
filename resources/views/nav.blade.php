@@ -9,7 +9,7 @@
         <a class="link" href="{{ url('stock_pf') }}">Stock PF</a>
         <a class="link" href="{{ url('stock_pfsf') }}">Stock PFSF</a>
         <a class="link" href="{{ url('stock_pfvr') }}">Stock PFVR</a>
-        <a class="link" href="{{ url('stocks_composant') }}">Stock Composant</a>
+        <a class="link" href="{{ url('stock_composant') }}">Stock Composant</a>
         <a class="link" href="{{ url('bc_composant') }}">BC Composant</a>
     </div>
     <div class="navbar__right">

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BCComposant_Controller;
+use App\Http\Controllers\StockComposant_Controller;
 use App\Http\Controllers\StockPFVR_Controller;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\FabricationController;
@@ -52,3 +54,17 @@ Route::get('stock_pf', [StockPF_Controller::class,'index'])->name('stock_pf');
 Route::get('stock_pf/getdata', [StockPF_Controller::class, 'getData'])->name('stock_pf.getdata');
 Route::post('stock_pf/postdata',  [StockPF_Controller::class, 'postData'])->name('stock_pf.postdata');
 Route::get('stock_pf/fetchdata', [StockPF_Controller::class, 'fetchData'])->name('stock_pf.fetchdata');
+
+
+
+Route::get('stock_composant', [StockComposant_Controller::class,'index'])->name('stock_composant');
+Route::get('stock_composant/getdata', [StockComposant_Controller::class, 'getData'])->name('stock_composant.getdata');
+Route::post('stock_composant/postdata',  [StockComposant_Controller::class, 'postData'])->name('stock_composant.postdata');
+Route::get('stock_composant/fetchdata', [StockComposant_Controller::class, 'fetchData'])->name('stock_composant.fetchdata');
+
+
+
+Route::get('bc_composant', [BCComposant_Controller::class,'index'])->name('bc_composant');
+Route::get('bc_composant/getdata', [BCComposant_Controller::class, 'getData'])->name('bc_composant.getdata');
+Route::post('bc_composant/postdata',  [BCComposant_Controller::class, 'postData'])->name('bc_composant.postdata');
+Route::get('bc_composant/fetchdata', [BCComposant_Controller::class, 'fetchData'])->name('bc_composant.fetchdata');
