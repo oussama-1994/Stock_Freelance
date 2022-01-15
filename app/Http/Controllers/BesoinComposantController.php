@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\BesoinComposant;
 use App\Models\Formulation;
 use App\Models\Prevision;
-use App\Models\StockPF;
-use App\Models\StockPFSF;
-use App\Models\StockPFVR;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
@@ -91,30 +88,14 @@ class BesoinComposantController extends Controller
     }
 
     private function calculbesoinComposant() : void{
-        set_time_limit(0);
+
         $formulations = Formulation::all();
-        $besoins  = BesoinComposant::all();
-        foreach ($formulations as $formulation){
-            $prevision =  Prevision::where('code_PF', $formulation->code_PF)->pluck('quantite')->first();
-            foreach ($besoins as $besoin){
-                $besoin->where('code_composant',$formulation->code_composant)->update([
-                    'quantite' => $prevision * $formulation->quantite
-                ]);
-            }
+        foreach ($formulations as $formulation) {
+            $prevision = Prevision::where('code_PF', $formulation->code_PF)->pluck('quantite')->first();
+            BesoinComposant::where('code_composant',$formulation->code_composant)->where('code_PF', $formulation->code_PF)->update([
+                'quantite' => $prevision * $formulation->quantite
+            ]);
         }
-        /*
-        $besoinComposants = BesoinComposant::all();
-        foreach ($besoinComposants as $besoinComposant){
-            $prevision =  Prevision::where('code_PF', $besoinComposant->code_PF)->pluck('quantite')->first();
-            $formulations = Formulation::where('code_PF', $besoinComposant->code_PF)->pluck('quantite')->toArray();
-            foreach ($formulations as $formulation){
-                $quantite = $prevision * $prevision;
-                $besoinComposant->update(['quantite' => $prevision * $formulation]);
-            }
-            //$quantite = '';
-           // $quantite = Prevision::where('code_PF', $besoinComposant->code_PF)->pluck('quantite')->first() - StockPF::where('code_PF', $besoinComposant->code_PF)->pluck('quantite')->first() - StockPFSF::where('code_PF', $besoinComposant->code_PF)->pluck('quantite')->first() - StockPFVR::where('code_PF', $besoinComposant->code_PF)->pluck('quantite')->first();
-            //$besoinComposant->update(['quantite' => $prevision * $formulation]);
-        }
-*/
+
     }
 }
