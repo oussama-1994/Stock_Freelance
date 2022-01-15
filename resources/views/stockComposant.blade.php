@@ -36,7 +36,7 @@
             <button type="button" name="add" id="add_data" class="btn btn-success btn-sm">Add</button>
         </div>
         <br />
-        <table id="stock_table" class="table table-bordered" style="width:100%">
+        <table id="stock_table" class="table table-bordered table table-striped table table-hover" style="width:100%">
             <thead>
             <tr>
                 <th>Code composant</th>
