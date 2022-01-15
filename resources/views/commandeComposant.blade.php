@@ -38,7 +38,7 @@
 
     <div class="container">
         <br />
-        <h3 align="center">Besoin Composant</h3>
+        <h3 align="center">Commande Composant</h3>
         <br />
         <div align="right">
             <button type="button" name="add" id="add_data" class="btn btn-success btn-sm">Add</button>
@@ -47,9 +47,9 @@
         <table id="stock_table" class="table table-bordered" style="width:100%">
             <thead>
             <tr>
-                <th>Code_PF</th>
                 <th>Code_composant</th>
-                <th>Quantite</th>
+                <th>Stock_Restant</th>
+                <th>Quantite_Commander</th>
             </tr>
             </thead>
         </table>
@@ -92,11 +92,11 @@
         $('#stock_table').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{ route('besoin_composant.getdata') }}",
+            "ajax": "{{ route('commande_composant.getdata') }}",
             "columns":[
-                { "data": "code_PF" },
                 { "data": "code_composant" },
-                { "data": "quantite" },
+                { "data": "stock_restant" },
+                { "data": "quantite_commander" },
             ]
         });
 
@@ -116,7 +116,7 @@
             event.preventDefault();
             var form_data = $(this).serialize();
             $.ajax({
-                url:"{{ route('besoin_composant.postdata') }}",
+                url:"{{ route('commande_composant.postdata') }}",
                 method:"POST",
                 data:form_data,
                 dataType:"json",
@@ -151,7 +151,7 @@
 
 
             $.ajax({
-                url:"{{route('besoin_composant.fetchdata')}}",
+                url:"{{route('commande_composant.fetchdata')}}",
 
                 method:'get',
                 data:{id:id},
@@ -159,9 +159,7 @@
 
                 success:function(data)
                 {
-
                     console.log(data)
-
                     $('#code').val(data.code);
                     $('#stock').val(data.stock);
                     $('#id').val(id);
@@ -172,11 +170,7 @@
                 }
             })
         });
-
     });
-
-
 </script>
-
 </body>
 </html>

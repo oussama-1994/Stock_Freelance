@@ -30,8 +30,8 @@
                 <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_pfvr') }}">Stock PFVR</a></li>
                 <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('bc_composant') }}">BC Composant</a></li>
                 <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_composant') }}">Stock Composant</a></li>
-                <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_composant') }}">Besoin Composant</a></li>
-                <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_composant') }}">Commande Composant</a></li>
+                <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('besoin_composant') }}">Besoin Composant</a></li>
+                <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('commande_composant') }}">Commande Composant</a></li>
             </ul>
 
 </nav>

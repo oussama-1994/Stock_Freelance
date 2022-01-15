@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BCComposant_Controller;
 use App\Http\Controllers\BesoinComposantController;
+use App\Http\Controllers\CommandeComposantController;
 use App\Http\Controllers\StockComposant_Controller;
 use App\Http\Controllers\StockPFVR_Controller;
 use Illuminate\Support\Facades\Route;
@@ -76,3 +77,10 @@ Route::get('besoin_composant', [BesoinComposantController::class,'index'])->name
 Route::get('besoin_composant/getdata', [BesoinComposantController::class, 'getData'])->name('besoin_composant.getdata');
 Route::post('besoin_composant/postdata',  [BesoinComposantController::class, 'postData'])->name('besoin_composant.postdata');
 Route::get('besoin_composant/fetchdata', [BesoinComposantController::class, 'fetchData'])->name('besoin_composant.fetchdata');
+
+
+
+Route::get('commande_composant', [CommandeComposantController::class,'index'])->name('commande_composant');
+Route::get('commande_composant/getdata', [CommandeComposantController::class, 'getData'])->name('commande_composant.getdata');
+Route::post('commande_composant/postdata',  [CommandeComposantController::class, 'postData'])->name('commande_composant.postdata');
+Route::get('commande_composant/fetchdata', [CommandeComposantController::class, 'fetchData'])->name('commande_composant.fetchdata');
