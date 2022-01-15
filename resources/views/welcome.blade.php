@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Stock Application</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!--
 
@@ -213,10 +214,10 @@
         <div class="row">
             <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
                 <div class="section-heading">
-                    <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
+                    <h2>Passer vos commande</h2>
+                    <p>Vous pouvez passer vos commande facilement</p>
                     <div class="phone-info">
-                        <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
+                        <h4>Pour toute demande, appelez: <span><i class="fa fa-phone"></i> <a href="#">000-000-000</a></span></h4>
                     </div>
                 </div>
             </div>
@@ -225,12 +226,12 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <fieldset>
-                                <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                                <input type="name" name="name" id="name" placeholder="Code produit" autocomplete="on" required>
                             </fieldset>
                         </div>
                         <div class="col-lg-6">
                             <fieldset>
-                                <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
+                                <input type="surname" name="surname" id="surname" placeholder="Quantité" autocomplete="on" required>
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
@@ -245,7 +246,7 @@
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                                <button type="submit" id="form-submit" class="main-button ">Send Message</button>
+                                <button type="submit" id="form-submit" class="main-button ">Commander</button>
                             </fieldset>
                         </div>
                     </div>
@@ -262,9 +263,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-                <p>© Copyright 2021 Space Dynamic Co. All Rights Reserved.
-
-                    <br>Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+                <p>© Copyright 2022. All Rights Reserved.
             </div>
         </div>
     </div>

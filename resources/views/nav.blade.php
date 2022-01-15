@@ -6,7 +6,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>Stock Application</title>
 
@@ -31,6 +30,8 @@
                 <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_pfvr') }}">Stock PFVR</a></li>
                 <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('bc_composant') }}">BC Composant</a></li>
                 <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_composant') }}">Stock Composant</a></li>
+                <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_composant') }}">Besoin Composant</a></li>
+                <li class="scroll-to-section" id="nav1"><a class="link" href="{{ url('stock_composant') }}">Commande Composant</a></li>
             </ul>
 
 </nav>
