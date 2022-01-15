@@ -8,10 +8,26 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body id="body">
-@include('nav')
+<body>
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">
+                        <h4>G<span>S</span></h4>
+                    </a>
+                    <!-- ***** Menu Start ***** -->
+                @include('nav')
+                <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
 
-<main>
+<main style="margin-top: 90px">
     <div class="container">
         <br />
         <h3 align="center">Gestion de Stock_PF</h3>
