@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body id="body">
+
+<body>
+
+<!-- ***** Preloader End ***** -->
+
+<!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
         <div class="row">
@@ -26,11 +31,14 @@
         </div>
     </div>
 </header>
+<!-- ***** Header Area End ***** -->
+
 
 <main style="margin-top: 90px">
+
     <div class="container">
         <br />
-        <h3 align="center">Gestion de stock_composant</h3>
+        <h3 align="center">Fabrication PF</h3>
         <br />
         <div align="right">
             <button type="button" name="add" id="add_data" class="btn btn-success btn-sm">Add</button>
@@ -39,10 +47,9 @@
         <table id="stock_table" class="table table-bordered" style="width:100%">
             <thead>
             <tr>
-                <th>Code composant</th>
-                <th>Quantité</th>
-                <th>Type</th>
-                <th>Action</th>
+                <th>Code_PF</th>
+                <th>Code_composant</th>
+                <th>Quantite</th>
             </tr>
             </thead>
         </table>
@@ -60,17 +67,20 @@
                 <div class="modal-body">
                     {{csrf_field()}}
                     <span id="form_output"></span>
-
                     <div class="form-group">
-                        <label>Quantité</label>
-                        <input type="number" name="quantite" id="last_name" class="form-control" min="0" />
+                        <label>Code</label>
+                        <input type="text" name="code_PF" id="first_name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="number" name="quantite" id="last_name" class="form-control" />
                     </div>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id" id="id" value="" />
                     <input type="hidden" name="button_action" id="button_action" value="insert" />
                     <input type="submit" name="submit" id="action" value="Add" class="btn btn-info" />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
@@ -82,12 +92,11 @@
         $('#stock_table').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{ route('stock_composant.getdata') }}",
+            "ajax": "{{ route('besoin_composant.getdata') }}",
             "columns":[
+                { "data": "code_PF" },
                 { "data": "code_composant" },
                 { "data": "quantite" },
-                { "data": "type" },
-                { "data": "action", orderable:false, searchable: false}
             ]
         });
 
@@ -107,7 +116,7 @@
             event.preventDefault();
             var form_data = $(this).serialize();
             $.ajax({
-                url:"{{ route('stock_composant.postdata') }}",
+                url:"{{ route('besoin_composant.postdata') }}",
                 method:"POST",
                 data:form_data,
                 dataType:"json",
@@ -142,7 +151,7 @@
 
 
             $.ajax({
-                url:"{{route('stock_composant.fetchdata')}}",
+                url:"{{route('besoin_composant.fetchdata')}}",
 
                 method:'get',
                 data:{id:id},
@@ -157,8 +166,8 @@
                     $('#stock').val(data.stock);
                     $('#id').val(id);
                     $('#stockModal').modal('show');
-                    $('#action').val('Enregistrer');
-                    $('.modal-title').text('Modifier le Stock PF');
+                    $('#action').val('Edit');
+                    $('.modal-title').text('Edit Data');
                     $('#button_action').val('update');
                 }
             })
