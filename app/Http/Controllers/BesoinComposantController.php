@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BesoinComposant;
+use App\Models\FabricationPF;
 use App\Models\Formulation;
 use App\Models\Prevision;
 use Illuminate\Http\Request;
@@ -91,7 +92,7 @@ class BesoinComposantController extends Controller
 
         $formulations = Formulation::all();
         foreach ($formulations as $formulation) {
-            $prevision = Prevision::where('code_PF', $formulation->code_PF)->pluck('quantite')->first();
+            $prevision = FabricationPF::where('code_PF', $formulation->code_PF)->pluck('quantite')->first();
             BesoinComposant::where('code_composant',$formulation->code_composant)->where('code_PF', $formulation->code_PF)->update([
                 'quantite' => $prevision * $formulation->quantite
             ]);
